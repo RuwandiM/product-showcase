@@ -1,13 +1,12 @@
 "use client"
 import { useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPhone, faEnvelopeOpen, faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { faPhone, faEnvelopeOpen, faLocationDot, faXmark } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 const ContactUs = () => {
-
-    const [message, setMessage] = useState('');
+    const [showToast, setShowToast] = useState(false);
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
@@ -20,16 +19,29 @@ const ContactUs = () => {
             }),
         });
         if (res.ok) {
-            setMessage('Form submitted!');
+            setShowToast(true);
+            e.target.reset();
         }
     };
+
+    const handleClose = () => {
+        setShowToast(false); 
+    }  
 
     return (
         <>
             <Navbar />
-            <div className="px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+            <div className="px-4 py-14 lg:max-w-7xl lg:px-8">
                 <div className="flex flex-col md:flex-row items-center justify-center">
                     <div className="md:w-1/2 w-full p-10 md:p-20">
+                        <div className={`flex items-center justify-between mb-4 rounded-md bg-green-100 px-4 py-3 text-green-700 shadow-md transition-opacity duration-500 ease-in-out ${
+                            showToast ? 'opacity-100' : 'opacity-0'
+                        }`}>
+                            Message sent successfully!
+                            <button onClick={handleClose}>
+                                <FontAwesomeIcon icon={faXmark} className="ml-2 cursor-pointer" />
+                            </button>
+                        </div>
                         <form onSubmit={handleSubmit}>
                             <label className="block text-sm font-medium text-gray-700 mb-2">
                                 Name      
@@ -62,7 +74,7 @@ const ContactUs = () => {
                             />
                             <button
                                 type="submit"
-                                className="w-full bg-pink-600 text-white py-2 rounded hover:bg-pink-700 transition duration-300"
+                                className="w-full bg-pink-600 text-white py-2 rounded hover:bg-pink-700 transition duration-300 cursor-pointer"
                             >  
                                 Submit 
                             </button>
@@ -98,7 +110,7 @@ const ContactUs = () => {
                     </div>
                 </div>
             </div>
-            <Footer />    
+            <Footer />  
         </>
     )
 }

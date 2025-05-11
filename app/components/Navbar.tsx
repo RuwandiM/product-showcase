@@ -13,6 +13,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const pathname = usePathname();
+  const isProductPage = /^\/product(\/\w+)?$/.test(pathname)
 
   return (
     <nav className="bg-white shadow-md fixed top-0 w-full z-50">
@@ -25,7 +26,7 @@ const Navbar = () => {
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-6">
                 <Link href="/product" className={
-                    pathname === "/product" ? "navbar-link-active" : "navbar-link"
+                    isProductPage ? "navbar-link-active" : "navbar-link"
                 }>
                     Products
                 </Link>
@@ -51,7 +52,7 @@ const Navbar = () => {
                 <Link
                     href="/product"
                     className={
-                        pathname === "/product" ? "navbar-link-active" : "navbar-link"
+                        isProductPage ? "navbar-link-active" : "navbar-link"
                     }
                     onClick={() => setIsOpen(false)}
                 >

@@ -19,8 +19,8 @@ A modern, responsive online store built using **Next.js 15** and **Tailwind CSS*
 
 ## 🛠️ Tech Stack
 
-[Next.js](https://nextjs.org/) - React framework for server-side rendering
-[Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [Next.js](https://nextjs.org/) - React framework for server-side rendering
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
 
 ## 📦 Getting Started
 

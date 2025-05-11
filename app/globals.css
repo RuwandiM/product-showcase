@@ -11,10 +11,16 @@
   width: 80px;
   height: 50px;
 }
+
 .navbar-link {
   color: var(--black);
   font-size: medium;
   font-weight: 600;
+}
+
+.navbar-link-active {
+  color: var(--pink);
+  font-weight: 700;
 }
 
 .navbar-link:hover {

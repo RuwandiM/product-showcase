@@ -7,9 +7,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import logo from "../../public/logo.png";
 import profilePic from "../../public/profile.jpg";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const pathname = usePathname();
 
   return (
     <nav className="bg-white shadow-md fixed top-0 w-full z-50">
@@ -21,15 +24,17 @@ const Navbar = () => {
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-6">
-            <Link href="/products" className="navbar-link">
-                Products
-            </Link>
-            <Link href="/">
-                <FontAwesomeIcon icon={faCartShopping} className="navbar-link" />
-            </Link>
-            <Link href="/">
-                <Image src={profilePic} alt="Profile" className="rounded-full navbar-profile"/>
-            </Link>
+                <Link href="/product" className={
+                    pathname === "/product" ? "navbar-link-active" : "navbar-link"
+                }>
+                    Products
+                </Link>
+                <Link href="/">
+                    <FontAwesomeIcon icon={faCartShopping} className="navbar-link" />
+                </Link>
+                <Link href="/">
+                    <Image src={profilePic} alt="Profile" className="rounded-full navbar-profile"/>
+                </Link>
             </div>
 
             <button
@@ -44,8 +49,10 @@ const Navbar = () => {
         {isOpen && (
             <div className="md:hidden bg-white px-4 pb-4">
                 <Link
-                    href="/products"
-                    className="block py-2 navbar-link"
+                    href="/product"
+                    className={
+                        pathname === "/product" ? "navbar-link-active" : "navbar-link"
+                    }
                     onClick={() => setIsOpen(false)}
                 >
                     Products

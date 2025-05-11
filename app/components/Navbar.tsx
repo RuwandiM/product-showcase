@@ -14,6 +14,7 @@ const Navbar = () => {
 
   const pathname = usePathname();
   const isProductPage = /^\/product(\/\w+)?$/.test(pathname)
+  const isContactPage = pathname === "/contact";
 
   return (
     <nav className="bg-white shadow-md fixed top-0 w-full z-50">
@@ -29,6 +30,11 @@ const Navbar = () => {
                     isProductPage ? "navbar-link-active" : "navbar-link"
                 }>
                     Products
+                </Link>
+                <Link href="/contact" className={
+                    isContactPage ? "navbar-link-active" : "navbar-link"
+                }>
+                    Contact Us
                 </Link>
                 <Link href="/">
                     <FontAwesomeIcon icon={faCartShopping} className="navbar-link" />
@@ -52,12 +58,23 @@ const Navbar = () => {
                 <Link
                     href="/product"
                     className={
-                        isProductPage ? "navbar-link-active" : "navbar-link"
+                        isProductPage ? "navbar-link-active" : "block py-2 navbar-link"
                     }
                     onClick={() => setIsOpen(false)}
                 >
                     Products
                 </Link>
+                    
+                <Link
+                    href="/contact"
+                    className={
+                        isContactPage ? "navbar-link-active" : "block py-2  navbar-link"
+                    }
+                    onClick={() => setIsOpen(false)}
+                >
+                    Contact Us
+                </Link>
+                
                 <Link
                     href="/"
                     className="block py-2 navbar-link"
@@ -65,6 +82,7 @@ const Navbar = () => {
                 >
                     Cart
                 </Link>
+                
                 <Link
                     href="/"
                     className="block py-2 navbar-link"

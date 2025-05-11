@@ -1,5 +1,6 @@
 import ProductCard from "@/app/components/ProductCard";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import fs from 'fs';
 import path from 'path';
 
@@ -18,6 +19,7 @@ export default function ProductPage() {
           ))}
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

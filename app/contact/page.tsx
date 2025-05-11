@@ -1,9 +1,10 @@
 "use client"
+
 import { useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone, faEnvelopeOpen, faLocationDot, faXmark } from "@fortawesome/free-solid-svg-icons";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Navbar from "@/app/components/Navbar";
+import Footer from "@/app/components/Footer";
 
 const ContactUs = () => {
     const [showToast, setShowToast] = useState(false);

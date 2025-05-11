@@ -36,10 +36,10 @@ const Navbar = () => {
                 }>
                     Contact Us
                 </Link>
-                <Link href="/">
+                <Link href="#">
                     <FontAwesomeIcon icon={faCartShopping} className="navbar-link" />
                 </Link>
-                <Link href="/">
+                <Link href="#">
                     <Image src={profilePic} alt="Profile" className="rounded-full navbar-profile"/>
                 </Link>
             </div>
@@ -76,7 +76,7 @@ const Navbar = () => {
                 </Link>
                 
                 <Link
-                    href="/"
+                    href="#"
                     className="block py-2 navbar-link"
                     onClick={() => setIsOpen(false)}
                 >
@@ -84,7 +84,7 @@ const Navbar = () => {
                 </Link>
                 
                 <Link
-                    href="/"
+                    href="#"
                     className="block py-2 navbar-link"
                     onClick={() => setIsOpen(false)}
                 >

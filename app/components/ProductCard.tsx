@@ -1,9 +1,10 @@
+import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAdd } from "@fortawesome/free-solid-svg-icons";
 
 const ProductCard = ({ product }: { product: any }) => {
   return (
-    <div className="group relative cursor-pointer">
+    <Link href={`/product/${product.id}`} className="group relative cursor-pointer">
         <div className="relative">
             <img
                 alt={product.title}
@@ -18,13 +19,11 @@ const ProductCard = ({ product }: { product: any }) => {
         </div>
         <div className="mt-4 lg:h-14 sm:h-10">
             <h3 className="text-sm text-gray-700">
-                <a href={product.href}>
-                    {product.title}
-                </a>
+                {product.title}
             </h3>
         </div>
         <p className="text-md font-bold text-gray-900">${product.price}</p>
-    </div>
+    </Link>
   )
 }
 

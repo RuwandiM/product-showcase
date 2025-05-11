@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import fs from 'fs';
 import path from 'path';
 
-export default function ProductPage() {
+const ProductPage = () => {
 
   const filePath = path.join(process.cwd(), 'public', 'products.json');
   const products = JSON.parse(fs.readFileSync(filePath, 'utf8'));
@@ -23,3 +23,5 @@ export default function ProductPage() {
     </div>
   );
 }
+
+export default ProductPage;

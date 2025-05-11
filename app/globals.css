@@ -26,3 +26,12 @@
   width: 30px;
   height: 30px;
 }
+
+/* hero */
+.hero-area-bg {
+    background: url(../public/hero.jpg) no-repeat;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: overlay;
+    min-height: 50dvh;
+}
